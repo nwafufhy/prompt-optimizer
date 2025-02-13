@@ -2,7 +2,7 @@
  * @Author: nwafufhy hyf7753@gmail.com
  * @Date: 2025-02-12 23:25:30
  * @LastEditors: nwafufhy hyf7753@gmail.com
- * @LastEditTime: 2025-02-12 23:25:39
+ * @LastEditTime: 2025-02-12 23:29:20
  * @FilePath: \prompt-optimizer\README.md
  * @Description: 
 -->
@@ -37,7 +37,7 @@
 
 ### 安装步骤
 ```bash
-git clone https://github.com/yourname/prompt-optimizer.git
+git clone https://github.com/nwafufhy/prompt-optimizer.git
 cd prompt-optimizer
 
 # 前端依赖

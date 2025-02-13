@@ -1,0 +1,7 @@
+fastapi 
+pydantic 
+motor
+fastapi 
+pymongo 
+langchain 
+openai
