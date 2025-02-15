@@ -1,86 +1,113 @@
-<!--
- * @Author: nwafufhy hyf7753@gmail.com
- * @Date: 2025-02-12 23:25:30
- * @LastEditors: nwafufhy hyf7753@gmail.com
- * @LastEditTime: 2025-02-12 23:29:20
- * @FilePath: \prompt-optimizer\README.md
- * @Description: 
--->
-# Prompt Optimizer Platform
+# Prompt Optimizer Platform🚀
 
-[![CI Status](https://github.com/nwafufhy/prompt-optimizer/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/yourname/prompt-optimizer/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-智能Prompt优化管理平台，实现从创建到持续改进的全生命周期管理。
+智能Prompt优化管理平台，实现从创建到持续改进的全生命周期管理。🌟
 
 ## ✨ 功能特性
-- 结构化Prompt模板引擎
-- AI辅助的自动优化循环
-- 版本控制系统
-- 可视化知识库管理
-- 多模型沙箱测试环境
+
+- **Prompt优化**：输入原始Prompt，获取优化后的版本📝→📝
+- **交互结果记录**：保存与AI的交互结果📋
+- **反馈系统**：支持评分、文字评价和是否通过三种反馈方式⭐📝✅
+- **记录管理**：查看历史优化记录，支持搜索和展开查看详情🔍📜
+- **数据持久化**：使用SQLite数据库保存所有记录💾
 
 ## 🛠️ 技术栈
-| 领域       | 技术选型                  |
-|------------|--------------------------|
-| 前端       | React + Ant Design + Vite|
-| 后端       | FastAPI + MongoDB        |
-| AI集成     | LangChain + OpenAI       |
-| 基础设施   | Docker + Nginx           |
+| 领域   | 技术选型                                   |
+| ---- | -------------------------------------- |
+| 前端   | React + TypeScript + Ant Design + Vite🌐💻 |
+| 后端   | FastAPI + SQLite🖥️💾                       |
+| AI集成 | LangChain + OpenAI🤖🧠                     |
 
 ## 🚀 快速开始
 
-### 前置需求
-- Node.js 18+
-- Python 3.10+
-- Docker Desktop
-
 ### 安装步骤
-```bash
+
+```powershell
+# 1. 克隆仓库
 git clone https://github.com/nwafufhy/prompt-optimizer.git
 cd prompt-optimizer
 
 # 前端依赖
-cd client && npm install
+cd frontend; npm install
 
 # 后端依赖
-cd ../server && poetry install
-
-# 启动MongoDB
-docker-compose -f infra/docker-compose.yml up -d
+conda create -n env-prompt-optimizer python=3.10
+cd ../backend
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
+准备配置文件：config.json
+```json
+{
+    "api_keys": {
+        "DMXAPI_API_KEY_1": "YOUR_API_KEY"
+    },
+    "base_urls": {
+        "DMXAPI_REST_URL_1": "https://www.dmxapi.com/v1/"
+    },
+    "model_names":{
+        "DMXAPI_MODEL":"deepseek-v3"
+    }
+}
+```
+>当前还没有自定义接口，暂时用的dmxapi的接口服务，本质上是类OPENAI接口
+### 运行项目
 
-### 配置环境
-创建 `.env` 文件：
-```ini
+```powershell
 # 前端
-VITE_API_BASE=http://localhost:8000
+cd frontend; npm run dev
 
 # 后端
-MONGO_URI=mongodb://localhost:27017/prod_db
-OPENAI_API_KEY=your_api_key
+cd backend; python api.py
+```
+打开浏览器访问 `http://localhost:5173`🌐🔍
+## 项目结构
+
+```
+prompt-optimizer/
+├── backend/               # 后端代码
+│   ├── api.py             # FastAPI主文件
+│	├── config.json        # 大模型api配置文件
+│   ├── data_manager.py    # 数据管理模块
+│   ├── optimizer.py       # Prompt优化逻辑
+│   └── requirements.txt   # Python依赖
+├── frontend/              # 前端代码
+│   ├── public/
+│   ├── src/
+│   │   ├── App.tsx        # 主组件
+│   │   ├── App.css        # 样式文件
+│   │   └── main.tsx       # 入口文件
+│   ├── package.json
+│   └── vite.config.ts
+└── README.md              # 项目说明文件
+```
+## 使用说明
+
+1. 在左侧输入原始 Prompt，点击 "优化" 按钮 🖱️📝
+2. 查看优化后的 Prompt 📝
+3. 输入与 AI 的交互结果并保存 📋
+4. 选择反馈类型并提交反馈 ⭐📝✅
+5. 在左侧查看历史记录，支持搜索和展开查看详情 🔍📜
+
+## 架构图
+```mermaid
+sequenceDiagram
+    participant User
+    participant CLI
+    participant Optimizer
+    participant DataManager
+    participant MetadataGenerator
+    participant FeedbackHandler
+
+    User->>CLI: 输入Prompt
+    CLI->>MetadataGenerator: 生成元数据
+    MetadataGenerator-->>CLI: 返回元数据
+    CLI->>DataManager: 保存原始Prompt
+    CLI->>Optimizer: 请求优化
+    Optimizer-->>CLI: 返回优化结果
+    CLI->>DataManager: 保存优化结果
+    CLI->>User: 显示优化结果
+    User->>FeedbackHandler: 提供反馈
+    FeedbackHandler->>DataManager: 保存反馈数据
 ```
 
-### 启动开发模式
-```bash
-# 前端
-cd client && npm run dev
-
-# 后端
-cd ../server && poetry run uvicorn main:app --reload
-```
-
-## 📚 使用文档
-- [API参考](docs/api.md)
-- [架构设计](docs/architecture.md)
-- [贡献指南](docs/CONTRIBUTING.md)
-
-## 🤝 贡献流程
-1. Fork仓库
-2. 创建特性分支 (`git checkout -b feat/new-feature`)
-3. 提交变更 (`git commit -am 'Add new feature'`)
-4. 推送到分支 (`git push origin feat/new-feature`)
-5. 创建Pull Request
-
-## 📄 License
-MIT License
