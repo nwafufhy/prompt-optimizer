@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
+  max-width: none; /* 去掉最大宽度限制 */
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: left; /* 左对齐 */
 }
 
 .logo {
@@ -41,8 +41,10 @@
   color: #888;
 }
 
+/* 调整布局宽度 */
 .layout {
   min-height: 100vh;
+  width: 100vw; /* 占满整个浏览器宽度 */
 }
 
 .header {
@@ -85,4 +87,200 @@
 
 .ant-rate {
   margin-bottom: 16px;
+}
+
+/* 新增记录列表相关样式 */
+.records-card {
+  margin-bottom: 24px;
+}
+
+/* 调整记录项样式 */
+.record-item {
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.record-item:last-child {
+  border-bottom: none; /* 去掉最后一个项目的下边框 */
+}
+
+.record-item:hover {
+  background-color: #fafafa;
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 垂直居中 */
+  margin-bottom: 8px;
+}
+
+.record-title {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.record-meta {
+  color: #666;
+  font-size: 12px;
+}
+
+.record-content {
+  margin-top: 8px;
+}
+
+.record-prompt {
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.record-prompt-label {
+  color: #666;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+/* 调整反馈和交互结果样式 */
+.record-feedback,
+.record-interaction {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+}
+
+.record-feedback-label,
+.record-interaction-label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #52c41a;
+}
+
+.feedback-content,
+.interaction-content {
+  padding: 8px;
+  background-color: #fafafa;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 调整无内容提示样式 */
+.ant-typography-secondary {
+  font-style: italic;
+  color: #8c8c8c;
+}
+
+/* 调整布局以适应新内容 */
+.content {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 调整内容区域宽度 */
+.main-layout {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  width: 100%; /* 占满父容器宽度 */
+  margin: 0;
+}
+
+/* 调整左侧面板宽度 */
+.left-panel {
+  flex: 1;
+  min-width: 400px; /* 最小宽度 */
+  max-width: 600px; /* 最大宽度 */
+}
+
+/* 调整右侧面板宽度 */
+.right-panel {
+  flex: 2;
+  min-width: 600px; /* 最小宽度 */
+}
+
+
+/* 调整卡片宽度 */
+.card {
+  margin-bottom: 24px;
+  width: 100%; /* 占满父容器宽度 */
+}
+
+/* 调整记录列表高度 */
+.records-card {
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+/* 调整搜索框样式 */
+.ant-input-search {
+  margin-bottom: 16px;
+}
+
+/* 调整记录列表标题布局 */
+.records-card .ant-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* 调整优化部分高度 */
+.optimize-section {
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+/* 调整记录项样式 */
+.record-item {
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.record-item:hover {
+  background-color: #fafafa;
+}
+
+.record-item.expanded {
+  background-color: #f0f0f0;
+}
+
+/* 调整记录内容样式 */
+.record-content {
+  margin-top: 8px;
+}
+
+.record-prompt {
+  margin-bottom: 8px;
+}
+
+.record-prompt-label {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.record-feedback,
+.record-interaction {
+  margin-top: 12px;
+}
+
+.record-feedback-label,
+.record-interaction-label {
+  font-weight: 500;
+  margin-bottom: 4px;
 }

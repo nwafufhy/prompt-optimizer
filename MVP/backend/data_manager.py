@@ -2,8 +2,8 @@
 Author: nwafufhy hyf7753@gmail.com
 Date: 2025-02-14 21:19:02
 LastEditors: nwafufhy hyf7753@gmail.com
-LastEditTime: 2025-02-14 23:54:07
-FilePath: \prompt-optimizer\MVP\data_manager.py
+LastEditTime: 2025-02-15 19:45:13
+FilePath: \MVP\backend\data_manager.py
 Description: 数据管理层
 与 SQLite 数据库交互
 DataManager 类，负责初始化数据库、保存记录等操作
@@ -73,6 +73,19 @@ class DataManager:
                     metadata['content']
                 ))
             conn.commit()  # 提交事务
+
+    def get_all_records(self):
+        """获取所有优化记录"""
+        with self._get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT id, name, version, raw_prompt, optimized_prompt, timestamp, result, feedback 
+                FROM prompts
+                ORDER BY timestamp DESC
+            """)
+            records = cursor.fetchall()
+            return [dict(zip(['id', 'name', 'version', 'raw_prompt', 'optimized_prompt', 'timestamp','result','feedback'], row)) 
+                    for row in records]
 
 class MetadataGenerator:
     """
