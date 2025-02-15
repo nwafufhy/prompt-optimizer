@@ -1,7 +1,7 @@
 # Prompt Optimizer Platform🚀
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
+![alt text](asserts/Snipaste_prompt-optimizer.png)
 智能Prompt优化管理平台，实现从创建到持续改进的全生命周期管理。🌟
 
 ## ✨ 功能特性
