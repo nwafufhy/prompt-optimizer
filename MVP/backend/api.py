@@ -2,14 +2,13 @@
 Author: nwafufhy hyf7753@gmail.com
 Date: 2025-02-15 14:13:07
 LastEditors: nwafufhy hyf7753@gmail.com
-LastEditTime: 2025-02-15 14:31:04
-FilePath: \MVP\api.py
+LastEditTime: 2025-02-15 17:27:41
+FilePath: \MVP\backend\api.py
 Description: 
 '''
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional
 import uvicorn
 
 from optimizer import init_langchain, optimize_prompt

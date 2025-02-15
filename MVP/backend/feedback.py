@@ -8,8 +8,6 @@ Description:
 '''
 
 from data_manager import DataManager
-import time
-import json
 
 class FeedbackHandler:
     def __init__(self):
