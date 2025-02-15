@@ -8,7 +8,7 @@
 -->
 # Prompt Optimizer Platform
 
-[![CI Status](https://github.com/yourname/prompt-optimizer/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/yourname/prompt-optimizer/actions)
+[![CI Status](https://github.com/nwafufhy/prompt-optimizer/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/yourname/prompt-optimizer/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 智能Prompt优化管理平台，实现从创建到持续改进的全生命周期管理。
